@@ -5,6 +5,7 @@ import re
 from contextlib import suppress
 from datetime import datetime, timezone
 
+from pypdf import PdfReader
 from reportlab.lib import colors
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
@@ -26,6 +27,16 @@ IP_KEYWORDS = [
     "know-how",
     "estratégia de precificação",
 ]
+
+
+def extract_text_from_file(uploaded_file) -> str:
+    if uploaded_file.name.lower().endswith(".pdf"):
+        reader = PdfReader(uploaded_file)
+        pages_text = [page.extract_text() or "" for page in reader.pages]
+        return "\n".join(pages_text)
+    if uploaded_file.name.lower().endswith(".txt"):
+        return uploaded_file.read().decode("utf-8", errors="ignore")
+    return ""
 
 
 def scan_text(text: str):
