@@ -1,0 +1,24 @@
+{
+  "timestamp_utc": "2026-08-30T01:50:27.601530+00:00",
+  "hash_auditoria": "d5c0741036c948e36756274cbc860b34b70da252af3a76c3dd3298482bc8c067",
+  "status_conformidade": "BLOQUEADO_POR_PROPRIEDADE_INTELECTUAL",
+  "metricas": {
+    "qtd_pii_detectados": 2,
+    "qtd_riscos_pi": 3
+  },
+  "detalhes_pii": [
+    {
+      "tipo": "CPF",
+      "valor": "123.456.789-00"
+    },
+    {
+      "tipo": "E-mail",
+      "valor": "joao@empresa.com"
+    }
+  ],
+  "alertas_pi": [
+    "segredo industrial",
+    "fórmula",
+    "algoritmo proprietário"
+  ]
+}
